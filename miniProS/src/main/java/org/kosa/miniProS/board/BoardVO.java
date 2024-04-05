@@ -18,5 +18,6 @@ public class BoardVO {
 	private String bdate;
 	private String bViewCount;
 	private String bwriter;
+	private String searchKey;
 	
 }
