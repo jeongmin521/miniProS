@@ -5,22 +5,26 @@
 <mapper namespace="org.kosa.miniProS.board.mapper.BoardMapper">
 
     <select id="list" resultType="org.kosa.miniProS.board.BoardVO">
-        select 
-        	* 
-        from boards
-    </select>
-
-	<select id="read" resultType="org.kosa.miniProS.board.BoardVO">
 		select 
-			* 
-		from boards 
-		where bno = #{bno}
-	</select>
-	
-	<delete id="delete" >
+			b.*, m.member_name bwriter  
+		from tb_board b inner join tb_member m on b.member_id = m.member_id
+    </select>
+    
+	<delete id="allDelete" >
 		delete 
-		from boards 
-		where bno = #{bno}
+		from tb_board 
 	</delete>
+	
+	<insert id="insert" >
+		insert into tb_board (
+			btitle,
+			bcontent,
+			member_id
+		) values (
+			#{btitle},
+			#{bcontent},
+			#{member_id}
+		) 
+	</insert>
     
 </mapper>
