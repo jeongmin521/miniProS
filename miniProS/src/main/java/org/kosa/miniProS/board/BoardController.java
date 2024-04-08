@@ -8,6 +8,7 @@ import javax.servlet.ServletException;
 import javax.validation.Valid;
 
 import org.kosa.miniProS.entity.BoardVO;
+import org.kosa.miniProS.page.PageRequestVO;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;

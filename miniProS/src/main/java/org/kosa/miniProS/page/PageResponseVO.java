@@ -1,4 +1,4 @@
-package org.kosa.miniProS.board;
+package org.kosa.miniProS.page;
 
 import java.util.List;
 

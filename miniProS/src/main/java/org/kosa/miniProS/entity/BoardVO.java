@@ -19,5 +19,4 @@ public class BoardVO {
 	private String view_count;
 	private String bwriter;
 	private String searchKey;
-	
 }
