@@ -6,6 +6,8 @@
 <head>
     <meta charset="UTF-8">
     <title>로그인</title>
+    <%@ include file="/WEB-INF/views/include/css.jsp" %>
+    <%@ include file="/WEB-INF/views/include/js.jsp" %>
 </head>
 <body>
     <h1>
