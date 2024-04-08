@@ -1,8 +1,7 @@
-package org.kosa.miniProS.board;
+package org.kosa.miniProS.code;
 
 import java.util.List;
 
-import org.kosa.miniProS.board.mapper.CodeMapper;
 import org.kosa.miniProS.entity.CodeVO;
 import org.springframework.stereotype.Service;
 

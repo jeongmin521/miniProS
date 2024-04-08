@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.kosa.miniProS.page.PageRequestVO;
 import org.kosa.miniProS.page.PageResponseVO;
-import org.kosa.miniProS.board.mapper.BoardMapper;
+import org.kosa.miniProS.board.BoardMapper;
 import org.kosa.miniProS.entity.BoardVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;

@@ -1,4 +1,4 @@
-package org.kosa.miniProS.board.mapper;
+package org.kosa.miniProS.code;
 
 import java.util.List;
 

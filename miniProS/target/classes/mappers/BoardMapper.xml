@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="org.kosa.miniProS.board.mapper.BoardMapper">
+<mapper namespace="org.kosa.miniProS.board.BoardMapper">
 
     <sql id="search">
         <where>
@@ -11,6 +11,7 @@
             </if>
         </where>
     </sql>
+
 
     <select id="getList" resultType="BoardVO">
 		select 
@@ -45,6 +46,13 @@
 		from tb_board 
 		where bno = #{bno}
 	</delete>
+	
+	<update id="update" >
+		update tb_board set
+			btitle   = #{btitle},
+			bcontent = #{bcontent}
+		where bno = #{bno}
+	</update>
 
 	<delete id="allDelete" >
 		delete 

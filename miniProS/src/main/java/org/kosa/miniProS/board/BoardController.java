@@ -7,6 +7,7 @@ import java.util.Map;
 import javax.servlet.ServletException;
 import javax.validation.Valid;
 
+import org.kosa.miniProS.code.CodeService;
 import org.kosa.miniProS.entity.BoardVO;
 import org.kosa.miniProS.page.PageRequestVO;
 import org.springframework.stereotype.Controller;
@@ -85,5 +86,24 @@ public class BoardController {
 		model.addAttribute("board", boardService.updateForm(board));
 		
 		return "board/updateForm"; 
+	}
+	
+	@RequestMapping("update")
+	@ResponseBody
+	public Map<String, Object>  update(@RequestBody BoardVO board) throws ServletException, IOException {
+		log.info("수정 board => {}", board);
+		
+		//1. 처리
+		int updated = boardService.update(board);
+		
+		Map<String, Object> map = new HashMap<>();
+		if (updated == 1) { //성공
+			map.put("status", 0);
+		} else {
+			map.put("status", -99);
+			map.put("statusMessage", "게시물 정보 수정 실패하였습니다");
+		}
+		
+		return map;
 	}
 }
