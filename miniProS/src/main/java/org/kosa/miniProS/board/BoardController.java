@@ -2,27 +2,17 @@ package org.kosa.miniProS.board;
 
 import java.io.IOException;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Objects;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -39,15 +29,45 @@ public class BoardController {
 	private final BoardService boardService;
 
 	@RequestMapping("list")
-	public String list(BoardVO board, Model model) throws ServletException, IOException {
+	public String list(@Valid PageRequestVO pageRequestVO, BindingResult bindingResult, Model model) throws ServletException, IOException {
 		log.info("목록");
 		
-		//1. 처리
-		List<BoardVO> list1 = boardService.list(board);
-		
+		log.info(pageRequestVO.toString());
+
+        if(bindingResult.hasErrors()){
+        	pageRequestVO = PageRequestVO.builder().build();
+        }
+        
 		//2. jsp출력할 값 설정
-		model.addAttribute("list", list1);
+		model.addAttribute("pageResponseVO", boardService.getList(pageRequestVO));
 		
 		return "board/list";
+	}
+	
+	@RequestMapping("view")
+	public String view(BoardVO board, Model model) throws ServletException, IOException {
+		log.info("상세보기");
+		
+		model.addAttribute("board", boardService.view(board));
+		
+		return "board/view";
+	}
+
+	@RequestMapping("delete")
+	@ResponseBody
+	public Map<String, Object> delete(@RequestBody BoardVO board) throws ServletException, IOException {
+		log.info("삭제 -> {}", board);
+		//1. 처리
+		int updated = boardService.delete(board);
+		
+		Map<String, Object> map = new HashMap<>();
+		if (updated == 1) { //성공
+			map.put("status", 0);
+		} else {
+			map.put("status", -99);
+			map.put("statusMessage", "게시물 정보 삭제 실패하였습니다");
+		}
+		
+		return map;
 	}
 }

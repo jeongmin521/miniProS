@@ -1,9 +1,6 @@
 package org.kosa.miniProS.board;
 
-import java.io.IOException;
 import java.util.List;
-
-import javax.servlet.ServletException;
 
 import org.kosa.miniProS.board.mapper.BoardMapper;
 import org.springframework.stereotype.Service;
@@ -20,12 +17,33 @@ import lombok.extern.slf4j.Slf4j;
 @Service
 @Slf4j
 @RequiredArgsConstructor
-public class BoardService  {
+public class BoardService {
 	private static final long serialVersionUID = 1L;
       
 	private final BoardMapper  boardMapper;
 
-    public List<BoardVO> list(BoardVO board) throws ServletException, IOException {
-		return boardMapper.list(board);
+    public PageResponseVO<BoardVO> getList(PageRequestVO pageRequestVO) {
+    	List<BoardVO> list = boardMapper.getList(pageRequestVO);
+        int total = boardMapper.getTotalCount(pageRequestVO);
+        
+        log.info("list {} ", list);
+        log.info("total  = {} ", total);
+
+        PageResponseVO<BoardVO> pageResponseVO = PageResponseVO.<BoardVO>withAll()
+                .list(list)
+                .total(total)
+                .size(pageRequestVO.getSize())
+                .pageNo(pageRequestVO.getPageNo())
+                .build();
+
+        return pageResponseVO;
+	}
+	
+	public BoardVO view(BoardVO board)  {
+		return boardMapper.view(board);
+	}
+	
+	public int delete(BoardVO board)  {
+		return boardMapper.delete(board);
 	}
 }
