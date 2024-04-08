@@ -9,8 +9,8 @@
 </head>
 <body>
     <h1>
-        로그인 
-    </h1>
+		로그인
+		 </h1>
     <form id="rForm" action="" method="post">
         <label>아이디: </label><input type="text" id="member_id" name="member_id" required="required" placeholder="아이디를 입력해주세요"><br/>
         <label>비번: </label> <input type="password" id="member_pwd" name="member_pwd" required="required" placeholder="비밀번호를 입력해주세요"><br/>
@@ -18,7 +18,7 @@
 	        <input type="submit" value="로그인">
 	        <a href="javascript:history(-1)">취소</a>
 	    </div>
-    
+
     </form>
 
 <script type="text/javascript" src="<c:url value='/resources/js/common.js'/>"></script>
@@ -34,15 +34,14 @@ rForm.addEventListener("submit", e => {
 			//성공
 			alert(json.loginVO.member_name + " 로그인 완료");
 			//location = "<c:url value='/board/list'/>"; //절대 경로, 컨텍스트명 자동 변경 
-			//location = "/mini/board/list"; //절대 경로 
+			//location = "/miniProS/board/list"; //절대 경로 
 			location = "../board/list"; //상대경로 
 		} else {
 			alert(json.statusMessage);
 		}
 	});
 });
-
 </script>    
-    
+
 </body>
 </html>

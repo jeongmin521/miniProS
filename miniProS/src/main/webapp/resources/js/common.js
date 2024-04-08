@@ -35,6 +35,7 @@ const formToSerialize = (formId) => JSON.stringify([].reduce.call(document.query
 	    {} //초기값 
 	 )
 );
+
 /*
 url : 서버의 주소
 formId : formId 또는 json 연관배열
