@@ -58,4 +58,8 @@ public class BoardService {
 	public int delete(BoardVO board)  {
 		return boardMapper.delete(board);
 	}
+	
+	public BoardVO updateForm(BoardVO board)  {
+		return boardMapper.view(board);
+	}
 }

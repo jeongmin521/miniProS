@@ -76,4 +76,14 @@ public class BoardController {
 		
 		return map;
 	}
+	
+	@RequestMapping("updateForm")
+	public Object updateForm(BoardVO board, Model model) throws ServletException, IOException {
+		System.out.println("수정화면");
+		
+		//2. jsp출력할 값 설정
+		model.addAttribute("board", boardService.updateForm(board));
+		
+		return "board/updateForm"; 
+	}
 }
