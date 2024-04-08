@@ -9,6 +9,7 @@
 <h1>
 	Hello world!  
 </h1>
+<a href="<c:url value='/member/loginForm'/>" >로그인 양식</a> <br/>
 <a href="<c:url value='/board/list'/>" >게시물 목록</a> <br/>
 <P>  The time on the server is ${serverTime}. </P>
 </body>
