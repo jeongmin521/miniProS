@@ -106,4 +106,12 @@ public class BoardController {
 		
 		return map;
 	}
+	
+	@RequestMapping("insertForm")
+	public Object insertForm() throws ServletException, IOException {
+		System.out.println("등록화면");
+		
+		//2. jsp출력할 값 설정
+		return "board/insertForm";
+	}
 }
