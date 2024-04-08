@@ -2,8 +2,8 @@ package org.kosa.miniProS.mapper;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.kosa.miniProS.board.BoardVO;
 import org.kosa.miniProS.board.mapper.BoardMapper;
+import org.kosa.miniProS.entity.BoardVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;

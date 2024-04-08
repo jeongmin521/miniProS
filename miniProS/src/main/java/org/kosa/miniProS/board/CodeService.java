@@ -3,6 +3,7 @@ package org.kosa.miniProS.board;
 import java.util.List;
 
 import org.kosa.miniProS.board.mapper.CodeMapper;
+import org.kosa.miniProS.entity.CodeVO;
 import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;

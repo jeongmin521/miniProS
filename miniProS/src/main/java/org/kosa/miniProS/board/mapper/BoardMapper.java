@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.kosa.miniProS.board.PageRequestVO;
-import org.kosa.miniProS.board.BoardVO;
+import org.kosa.miniProS.entity.BoardVO;
 
 
 @Mapper

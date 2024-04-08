@@ -1,4 +1,4 @@
-package org.kosa.miniProS.board;
+package org.kosa.miniProS.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
