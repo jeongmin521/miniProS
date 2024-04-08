@@ -39,29 +39,13 @@
 </head>
 <body>
 	<h1>게시물목록</h1>
-	<h3>로그인 : ${loginVO.username} </h3>
+	<h3>로그인 : ${loginVO.member_name} </h3>
     <form id="searchForm" action="list" method="post" >
-        <!--  input type="hidden" id="size" name="size" value="${pageRequestVO.size}" -->
-        <!-- 
-        <select name="size" >
-        	<option value="10" ${pageRequestVO.size == 10 ? 'selected' : ''}>10</option>
-        	<option value="20" ${pageRequestVO.size == 20 ? 'selected' : ''}>20</option>
-        	<option value="50" ${pageRequestVO.size == 50 ? 'selected' : ''}>50</option>
-        	<option value="100" ${pageRequestVO.size == 100 ? 'selected' : ''}>100</option>
-        </select>
-         -->
-         <%--  
-        <select id="size" name="size" >
-        	<c:forEach var="size" items="${sizes}">
-        		<option value="${size}" ${pageRequestVO.size == size ? 'selected' : ''} >${size}</option>
-        	</c:forEach>
-        </select>
-         --%>
-        <select id="size" name="size" >
-        	<c:forEach var="size" items="${sizes}">
-        		<option value="${size.codeid}" ${pageRequestVO.size == size.codeid ? 'selected' : ''} >${size.name}</option>
-        	</c:forEach>
-        </select>
+       <select id="size" name="size" >
+        <c:forEach var="size" items="${sizes}">
+       		<option value="${size.codeid}" ${pageRequestVO.size == size.codeid ? 'selected' : ''} >${size.name}</option>
+       	</c:forEach>
+       </select>
     	<label>제목</label>
     	<input type="text" id="searchKey" name="searchKey" value="${param.searchKey}">
     	<input type="submit" value="검색">
