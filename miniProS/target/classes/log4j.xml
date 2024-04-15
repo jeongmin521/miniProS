@@ -12,7 +12,11 @@
 	
 	<!-- Application Loggers -->
 	<logger name="org.kosa.miniProS">
-		<level value="info" />
+		<level value="debug" />
+	</logger>
+	
+	<logger name="java.sql">
+		<level value="debug" />
 	</logger>
 	
 	<!-- 3rdparty Loggers -->
