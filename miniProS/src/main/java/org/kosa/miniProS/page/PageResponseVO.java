@@ -35,7 +35,7 @@ public class PageResponseVO<E> {
         this.total = total;
         this.list = list;
 
-        this.end =   (int)(Math.ceil(this.pageNo / 10.0 )) * 10;
+        this.end = (int)(Math.ceil(this.pageNo / 10.0 )) * 10;
 
         this.start = this.end - 9;
 

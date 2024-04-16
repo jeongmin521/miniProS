@@ -16,6 +16,7 @@
 	    <property name="username" value="bituser" />
 	    <property name="password" value="1004" />
 	</bean>
+		
 	<!-- SessionFactory에 dataSourde, Bean 객체의 별명 설정, xml 파일의 위치 설정  -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 	    <property name="dataSource" ref="dataSource" />
