@@ -1,6 +1,7 @@
 package org.kosa.miniProS.board;
 
 import java.io.File;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
@@ -100,6 +101,12 @@ public class BoardService {
 			result = boardFileMapper.insert(boardFileVO);
 		}
 		
+		//board_token의 상태를 임시 상태에서 완료 상태로 변경한다
+		boardTokenMapper.updateStatusComplate(board.getBoard_token());
+		
+		//게시물 이미지의 board_token 값인 자료를 bno로 변경한다
+		boardImageFileMapper.updateBoardNo(board);
+		
 		return result;
 	}
 	
@@ -151,12 +158,6 @@ public class BoardService {
 		return board_token;
 	}
 	
-	public int updateUseStatus(String board_token) {
-		BoardTokenVO boardTokenVO = BoardTokenVO.builder().board_token(board_token).status(1).build();
-		
-		return boardTokenMapper.updateStatus(boardTokenVO);
-	}
-
 	public String boardImageFileUpload(String board_token, MultipartFile file) {
 		Calendar now = Calendar.getInstance();
 		//저장위치를 오늘의 날짜로 한다
@@ -197,5 +198,7 @@ public class BoardService {
 	
 	public BoardImageFileVO getBoardImageFile(String board_image_file_id) {
 		return boardImageFileMapper.findById(board_image_file_id);
-	}	
+	}
+	
+	
 }
