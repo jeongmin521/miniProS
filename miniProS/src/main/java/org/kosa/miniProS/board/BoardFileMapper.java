@@ -8,11 +8,9 @@ import org.kosa.miniProS.entity.BoardVO;
 
 @Mapper
 public interface BoardFileMapper {
-
-	List<org.kosa.miniProS.entity.BoardFileVO> getList(BoardVO boardVO);
+	List<BoardFileVO> getList(BoardVO boardVO);
+	BoardFileVO getBoardFile(int board_file_no);
 	BoardFileVO getBoardFileVO(BoardVO boardVO);
-	BoardFileVO view(BoardFileVO boardFileVO);
 	int delete(BoardFileVO boardFileVO);
 	int insert(BoardFileVO boardFileVO);
-
 }
