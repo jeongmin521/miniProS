@@ -77,5 +77,20 @@ ENGINE=InnoDB
 			#{item.board_token}
 		</foreach> 
 	</delete>
+	
+	<select id="getBoardImages" resultType="BoardImageFileVO">
+		select
+			*
+		from tb_board_image_file  
+		where board_token = #{board_token}
+	</select>
+		
+	<delete id="deleteBoardImageFiles" >
+		delete from tb_board_image_file  
+		where board_image_file_id in 
+		<foreach collection="list" item="item" open="(" separator="," close=")" >
+			#{item.board_image_file_id}
+		</foreach> 
+	</delete>
 	    
 </mapper>
